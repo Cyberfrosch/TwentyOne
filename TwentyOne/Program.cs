@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 
 using TwentyOne;
 
+//* 1,2,2,3,4,*/
 internal class Program
 {
     static void Main(string[] args)
