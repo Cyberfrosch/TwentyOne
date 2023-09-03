@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using static TwentyOne.Card;
@@ -13,6 +14,9 @@ namespace TwentyOne
     {
         public enum Suit { Hearts, Diamond, Clubs, Spades };
         public enum Seniority { Two = 2, Three, Four, Five, Six, Seven, Eight, Nine, Ten, J = 10, Q = 10, K = 10, Ace };
+
+        public String[] SeniorityTest = { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack" , "Queen", "King", "Ace" };
+        public int[] SeniortyAsInt = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11 };
 
         public Card(Suit suit, Seniority seniority)
         {
@@ -55,6 +59,7 @@ namespace TwentyOne
                 for (int j = 2; j < _senioritySize; ++j)
                 {
                     Card card = new Card((Suit)i, (Seniority)j);
+                    if ( j > 10 && j < 13 ) { card = new Card((Suit)i, (Seniority)10); }
                     _cards.Add(card);
                 }
             }
